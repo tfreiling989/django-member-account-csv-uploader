@@ -76,15 +76,6 @@ class MemberAccountUploadViewTestCase(TestCase):
         records_total = records_raw + more_records
         self._common_flow(mix, records_total)
 
-    def test_bulk_upload_happy_path(self,_):
-        records_raw = [self.create_record_row(i) for i in range(5)]
-        self._common_flow(records_raw,records_raw)
-
-        more_records = [self.create_record_row(i) for i in range(5,10)]
-        mix = [records_raw[0]] + more_records
-        records_total = records_raw + more_records
-        self._common_flow(mix, records_total)
-
     def test_bulk_upload_same_phone_number_and_account(self,_):
         records_raw = [
             self.create_record_row(account_id=1,phone_number=9087654321,client_member_id=1234),
